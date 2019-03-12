@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 11, 2019 at 05:06 PM
+-- Generation Time: Mar 12, 2019 at 03:50 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -36,6 +36,34 @@ CREATE TABLE `categories` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`categories_id`, `categories_name`, `categories_image`, `created_at`, `updated_at`) VALUES
+(1, 'Night Life', 'image/category/barandclub.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(2, 'BBQ', 'image/category/bbq.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(3, 'Cake', 'image/category/cake.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(4, 'Chinese Food', 'image/category/china.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(5, 'Coffee', 'image/category/coffee.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(6, 'European Food', 'image/category/european.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(7, 'Fast Food', 'image/category/fastfood.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(8, 'Hot Pot', 'image/category/hotpot.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(9, 'Indian Food', 'image/category/india.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(10, 'Italy Food', 'image/category/italy.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(11, 'Japan Food', 'image/category/japan.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(12, 'Korean Food', 'image/category/korea.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(13, 'Noodle', 'image/category/noodle.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(14, 'Pizza', 'image/category/pizza.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(15, 'Porridge', 'image/category/porridge.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(16, 'Seafood', 'image/category/seafood.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(17, 'Steak', 'image/category/steak.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(18, 'Street Food', 'image/category/streetfood.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(19, 'Sushi', 'image/category/sushi.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(20, 'Thai Food', 'image/category/thailand.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(21, 'Traditional', 'image/category/traditional.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00'),
+(22, 'Vegetarian', 'image/category/vegetarian.png', '2019-03-12 02:41:32', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -44,8 +72,19 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `cities` (
   `cities_id` int(11) NOT NULL,
-  `cities_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `cities_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `cities`
+--
+
+INSERT INTO `cities` (`cities_id`, `cities_name`, `created_at`, `updated_at`) VALUES
+(1, 'Yangon', '2019-03-12 02:42:58', '0000-00-00 00:00:00'),
+(2, 'Mandalay', '2019-03-12 02:42:58', '0000-00-00 00:00:00'),
+(3, 'Nay Pyi Taw', '2019-03-12 02:42:58', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -109,8 +148,36 @@ CREATE TABLE `townships` (
   `townships_id` int(11) NOT NULL,
   `townships_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `townships_cityid` int(11) NOT NULL,
-  `townships_deliveryprice` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `townships_deliveryprice` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `townships`
+--
+
+INSERT INTO `townships` (`townships_id`, `townships_name`, `townships_cityid`, `townships_deliveryprice`, `created_at`, `updated_at`) VALUES
+(1, 'Ahlon', 1, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(2, 'Bahan', 1, '2500', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(3, 'Botahtaung', 1, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(4, 'Hlaing', 1, '2500', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(5, 'Kamayut', 1, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(6, 'Pabedan', 1, '2500', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(7, 'Pazundaung', 1, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(8, 'Yankin', 1, '2500', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(9, 'Tamwe', 1, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(10, 'Sanchaung', 1, '2500', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(11, 'Aungmyethazan', 2, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(12, 'Chanayethazan', 2, '2500', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(13, 'Chanmyathazi', 2, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(14, 'Maha Aungmye', 2, '2500', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(15, 'Patheingyi', 2, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(16, 'Pyigyidagun', 2, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(17, 'Amarapura', 2, '2500', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(18, 'Ottarathiri', 3, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(19, 'Dekkhinathiri', 3, '2500', '2019-03-12 02:49:51', '0000-00-00 00:00:00'),
+(20, 'Pobbathiri', 3, '2000', '2019-03-12 02:49:51', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -185,13 +252,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `categories_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `categories_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `cities_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cities_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -215,7 +282,7 @@ ALTER TABLE `restaurants`
 -- AUTO_INCREMENT for table `townships`
 --
 ALTER TABLE `townships`
-  MODIFY `townships_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `townships_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
