@@ -18,6 +18,13 @@
   <link type="text/css" href="../assets/css/argon.css?v=1.0.0" rel="stylesheet">
   <!-- Data Table CSS -->
   <link rel="stylesheet" type="text/css" href="../datatables/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="../datatables/buttons.bootstrap4.min.css">
+  <style type="text/css">
+    #example_wrapper div.row div.col-sm-12 
+    {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body>
@@ -325,7 +332,7 @@
                 </div>
             </div>
             <div class="container table-responsive mb-5">
-              <table class="table align-items-center table-flush" id="example">
+              <table class="table align-items-center table-flush mt-5" id="example">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">#</th>
@@ -401,11 +408,25 @@
   <!-- Data Table JS -->
   <script type="text/javascript" src="../datatables/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="../datatables/dataTables.bootstrap4.min.js"></script>
+  <script type="text/javascript" src="../datatables/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="../datatables/buttons.bootstrap4.min.js"></script>
+  <script type="text/javascript" src="../datatables/jszip.min.js"></script>
+  <script type="text/javascript" src="../datatables/pdfmake.min.js"></script>
+  <script type="text/javascript" src="../datatables/vfs_fonts.js"></script>
+  <script type="text/javascript" src="../datatables/buttons.html5.min.js"></script>
+  <script type="text/javascript" src="../datatables/buttons.print.min.js"></script>
+  <script type="text/javascript" src="../datatables/buttons.colVis.min.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function() {
-    $('#example').DataTable();
-} );
+    var table = $('#example').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print' ]
+    } );
+ 
+    table.buttons().container()
+        .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+    });
   </script>
 
 </body>
